@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 
 function FetchError() {
-  const [data, setData] = useState(null);
+  const [data, setData] = useState([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
 
