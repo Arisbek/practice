@@ -12,7 +12,7 @@ function FetchPosts() {
         setPosts(data);
         setLoading(false);
       } catch (error) {
-        console.error("Error fetching posts:", error);
+        console.error("Error:", error);
         setLoading(false);
       }
     };
@@ -25,17 +25,15 @@ function FetchPosts() {
   }
 
   return (
-    <ul>
+    <ol>
       {posts.map(post => (
         <li key={post.id}>
-          {post.id}) {post.title} by {post.userId}
-          <br />
-          {post.body}
+          {post.title} 
           <br />
           _
         </li>
       ))}
-    </ul>
+    </ol>
   );
 }
 

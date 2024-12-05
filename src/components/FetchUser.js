@@ -13,7 +13,7 @@ function FetchUserPosts() {
     try {
       const response = await fetch(`https://jsonplaceholder.typicode.com/posts?userId=${userId}`);
       if (!response.ok) {
-        throw new Error(`HTTP error! status: ${response.status}`);
+        throw new Error(`Error: ${response.status}`);
       }
       const data = await response.json();
       setPost(data);
@@ -25,7 +25,14 @@ function FetchUserPosts() {
   };
 
   const handleInputChange = (e) => {
-    setUserId(e.target.value);
+    const value = e.target.value;
+    const regex = /^[1-9]\d*$/; // Regular expression to match positive integers without leading zeros
+  
+    if (!regex.test(value)) {
+      setError("Invalid Input");
+    } else {
+      setUserId(value);
+    }
   };
 
   const handleFetchClick = () => {
@@ -37,7 +44,7 @@ function FetchUserPosts() {
   return (
     <div>
       <input
-        type="text"
+        type="number"
         value={userId}
         onChange={handleInputChange}
         placeholder="Enter user ID"

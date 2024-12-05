@@ -20,7 +20,7 @@ function useFetchWithCache(url) {
         try {
           const response = await fetch(url);
           if (!response.ok) {
-            throw new Error(`HTTP error! status: ${response.status}`);
+            throw new Error(`Error: ${response.status}`);
           }
           const result = await response.json();
           cacheRef.current[url] = result;

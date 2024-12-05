@@ -12,7 +12,7 @@ function FetchError() {
     try {
       const response = await fetch("https://jsonplaceholder.typicode.com/invalid-endpoint");
       if (!response.ok) {
-        throw new Error(`HTTP error! status: ${response.status}`);
+        throw new Error(`Error: ${response.status}`);
       }
       const result = await response.json();
       setData(result);

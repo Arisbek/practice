@@ -10,7 +10,7 @@ function FetchUsers() {
       try {
         const response = await fetch("https://jsonplaceholder.typicode.com/users");
         if (!response.ok) {
-          throw new Error(`HTTP error! status: ${response.status}`);
+          throw new Error(`Error: ${response.status}`);
         }
         const data = await response.json();
         setUsers(data);
@@ -36,6 +36,7 @@ function FetchUsers() {
     <table>
       <thead>
         <tr>
+          <th>ID</th>
           <th>Name</th>
           <th>Email</th>
         </tr>
@@ -43,6 +44,7 @@ function FetchUsers() {
       <tbody>
         {users.map(user => (
           <tr key={user.id}>
+            <td>{user.id} </td>
             <td>{user.name}</td>
             <td>{user.email}</td>
           </tr>

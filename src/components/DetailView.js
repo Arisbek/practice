@@ -14,7 +14,7 @@ function DetailView() {
       try {
         const response = await fetch('https://jsonplaceholder.typicode.com/users');
         if (!response.ok) {
-          throw new Error(`HTTP error! status: ${response.status}`);
+          throw new Error(`Error: ${response.status}`);
         }
         const data = await response.json();
         setUsers(data);
@@ -35,7 +35,7 @@ function DetailView() {
     try {
       const response = await fetch(`https://jsonplaceholder.typicode.com/users/${id}`);
       if (!response.ok) {
-        throw new Error(`HTTP error! status: ${response.status}`);
+        throw new Error(`Error: ${response.status}`);
       }
       const data = await response.json();
       setSelectedUser(data);
@@ -74,7 +74,7 @@ function DetailView() {
 
       {selectedUser && (
         <div>
-          <h3>Details for {selectedUser.name}</h3>
+          <h3>Details about {selectedUser.name}</h3>
           <p>Email: {selectedUser.email}</p>
           <p>Phone: {selectedUser.phone}</p>
           <p>Website: {selectedUser.website}</p>

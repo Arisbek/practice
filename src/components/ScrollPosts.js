@@ -11,9 +11,9 @@ function ScrollPosts() {
     setError(null);
 
     try {
-      const response = await fetch(`https://jsonplaceholder.typicode.com/posts?_page=${page}&_limit=10`);
+      const response = await fetch("https://jsonplaceholder.typicode.com/posts");
       if (!response.ok) {
-        throw new Error(`HTTP error! status: ${response.status}`);
+        throw new Error(`Error: ${response.status}`);
       }
       const data = await response.json();
       setPosts(prevPosts => [...prevPosts, ...data]);
